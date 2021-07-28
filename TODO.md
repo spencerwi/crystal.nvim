@@ -1,3 +1,3 @@
-- add ft detection
-- test it all out
+- figure out why it's not actually highlighting
 - other treesitter query files
+- figure out how to handle incomplete treesitter implementation (currently missing quite a bit)
