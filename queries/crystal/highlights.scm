@@ -51,7 +51,7 @@
  "while"
  ] @repeat
 
-(constant) @type
+(type) @type
 
 ((identifier) @keyword
  (#vim-match? @keyword "^(private|protected|public)$"))
@@ -86,25 +86,26 @@
 (alias (identifier) @function)
 (setter (identifier) @function)
 
-(method_def name: [
+(method_definition name: [
                (identifier) @function
-               (constant) @type
+               (type) @type
                ])
 
 (singleton_method name: [
                          (identifier) @function
-                         (constant) @type
+                         (type) @type
                          ])
 
-(class_def name: (constant) @type)
-(module_def name: (constant) @type)
-(class_def superclass: (constant) @type)
+(class_definition name: (type) @type)
+(module_definition name: (constant) @type)
+(class_definition name: (type) @type)
+(class_definition superclass: (type) @type)
 
 ; Identifiers
 [
- (class_var)
- (instance_var)
- ] @label
+ (class_variable)
+ (instance_variable)
+] @label
 
 ((identifier) @constant.builtin
  (#vim-match? @constant.builtin "^__(callee|dir|id|method|send|ENCODING|FILE|LINE)__$"))
@@ -123,7 +124,7 @@
 
 [
  (string)
- ] @string
+] @string
 
 ; [
 ; (bare_symbol)
@@ -131,17 +132,16 @@
 ; (heredoc_end)
 ; ] @constant
 
-; (regex) @string.regex
+(regex) @string.regex
 (string_escape_sequence) @string.escape
-(chqr_escape_sequence) @string.escape
+(char_escape_sequence) @string.escape
 (integer) @number
 (float) @float
 
 [
  (nil)
- (true)
- (false)
- ] @boolean
+ (bool)
+] @boolean
 
 (comment) @comment
 

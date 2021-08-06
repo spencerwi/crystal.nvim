@@ -1,6 +1,6 @@
 ((method_def) @scope
  (set! scope-inherits false))
-(class_def) @scope
+(class_definition) @scope
 
 [
  (begin_block)
@@ -9,16 +9,16 @@
 
 (identifier) @reference
 (constant) @reference
-(instance_var) @reference
+(instance_variable) @reference
 
-(module_def name: (constant) @definition.namespace)
-(class_def name: (constant) @definition.type)
-(method_def name: (identifier) @definition.function)
+(module_definition name: (constant) @definition.namespace)
+(class_definition name: (type) @definition.type)
+(method_definition name: (identifier) @definition.function)
 
 
 (param name: (identifier) @definition.var)
 
-(assign lhs: (identifier) @definition.var)
-(assign lhs: (instance_var) @definition.var)
-(assign lhs: (class_var) @definition.var)
-(const_assign lhs: (constant) @definition.var)
+(assignment lhs: (identifier) @definition.var)
+(assignment lhs: (instance_variable) @definition.var)
+(assignment lhs: (class_variable) @definition.var)
+(assignment lhs: (constant) @definition.var)
